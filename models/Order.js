@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const OderSchema = new mongoose.Schema({
 
-    userId: {type: String, require:TextTrackCueList},
+    userId: {type: String, require: true},
     products: [
 
         {
@@ -26,4 +26,4 @@ const OderSchema = new mongoose.Schema({
 );
 
 
-module.exports = mongoose.model("Oder", OderSchema);
+module.exports = mongoose.model("Order", OderSchema);

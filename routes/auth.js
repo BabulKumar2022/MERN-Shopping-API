@@ -3,8 +3,9 @@ const User = require("../models/User");
 const bcrypt =require("bcryptjs");
 const jwt =require("jsonwebtoken");
 
-//REGISTER  
 
+//REGISTER  
+ 
 router.post("/register", async (req, res)=>{
 
     const salt =bcrypt.genSaltSync(10);
@@ -14,7 +15,9 @@ router.post("/register", async (req, res)=>{
         username: req.body.username,
         email: req.body.email,
         password: hash,
+        
     });
+      
     try {
         const saveUser = await newUser.save()
         res.status(201).json(saveUser)
@@ -23,8 +26,9 @@ router.post("/register", async (req, res)=>{
         res.status(500).json(err)
         console.log(err);
     }
-    
-});
+
+ 
+});  
 
 // LOGIN
 
@@ -65,7 +69,7 @@ router.post("/login", async(req, res, next)=>{
                 isAdmin: user.isAdmin,
             },
             process.env.JWT_SEC,
-            {expiresIn: "3d"}
+            {expiresIn: "30d"}
             )
 
              const{password, ...other} = user._doc;

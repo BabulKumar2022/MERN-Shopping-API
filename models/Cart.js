@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const CartSchema = new mongoose.Schema({
 
-    userId: {type: String, require:TextTrackCueList},
+    userId: {type: String, require: true},
     products: [
 
         {

@@ -4,14 +4,15 @@ const { verifyTokenAndAdmin, verifyTokenAndAuthorization } = require("./verifyTo
 
 
 //CREATE
-router.post("/", verifyTokenAndAdmin, async (req,res)=>{
-
+router.post("/", async (req,res)=>{
+               console.log("hello")
         const newProduct = new Product(req.body);
 
 
     try {
         const saveProduct =await newProduct.save();
         res.status(200).json(saveProduct);
+        console.log(saveProduct);
         
     } catch (err) {
         res.status(500).json(err);
